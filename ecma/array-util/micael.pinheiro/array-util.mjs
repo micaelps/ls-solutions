@@ -17,8 +17,8 @@ function max(array) {
 }
 
 function range(length, last, step) {
-  let start = last ? length : 0;
-  let end = last || length;
+  const start = last ? length : 0;
+  const end = last || length;
   step = step || 1;
   
   let array = [];
@@ -32,10 +32,10 @@ function range(length, last, step) {
 
 
 function zip(...arrays) {
-  let qtd = arrays.length
-  let result = []
+  const qtd = arrays.length
+  const result = []
   for(let i=0; i<qtd;i++){
-    let temp = []
+    const temp = []
     for(let j=0;j<arrays[i].length;j++){
       temp.push(arrays[j][i])
     }
@@ -45,28 +45,19 @@ function zip(...arrays) {
 }
 
 function uniq(array) {
-  // TODO
+  const set = new Set(array)
+  const unico  = []
+
+  for(const i of set){
+    unico.push(i)
+  }
+  return unico;
 }
 
 function sortNum(array) {
-  let arr = []
-  for (let item of array){
-    arr.push(item)
-  }
-  
-  var aux;
-  for(let i = 0;i<(arr.length)-1;i++){
-    for (let j=0;(arr.length)-1;j++){
+  return array.sort((a,b)=>a-b)
 
-      if(arr[j]>arr[j+1]){
-        aux = arr[j];
-        arr[j] = arr[j+1];
-        arr[j+1] = aux;
-
-      }
-    }
-  }
-  console.log(arr);
+   
 }
 
 export { min, max, range, zip, uniq, sortNum };
